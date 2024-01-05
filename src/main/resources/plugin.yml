@@ -1,0 +1,5 @@
+name: KyoAuction
+version: '${project.version}'
+main: org.kyonami.kyoauction.KyoAuction
+api-version: '1.20'
+depend: [KyoEconomy]
