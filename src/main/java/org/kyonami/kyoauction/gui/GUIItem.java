@@ -12,6 +12,7 @@ public class GUIItem {
     public GUIItem(Material material, int location) {
         this.itemStack = new ItemStack(material, 1);
         this.itemMeta = this.itemStack.getItemMeta();
+        this.location = location;
     }
 
     public GUIItem(ItemStack itemStack, int location){
@@ -19,19 +20,7 @@ public class GUIItem {
         this.location = location;
     }
 
-    private void setLocation(int location) {
-        this.location = location;
-    }
-
-    public ItemStack getItemStack() {
-        return this.itemStack;
-    }
-
-    public ItemMeta getItemMeta() {
-        return this.itemMeta;
-    }
-
-    public int getLocation() {
-        return this.location;
-    }
+    public ItemStack getItemStack() {return this.itemStack;}
+    public ItemMeta getItemMeta() { return this.itemMeta; }
+    public int getLocation() { return this.location; }
 }

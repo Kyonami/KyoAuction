@@ -3,6 +3,9 @@ package org.kyonami.kyoauction.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
+
+import java.util.UUID;
 
 public class BukkitAPI {
     public static Player findOnlinePlayer(String playerName){
@@ -21,7 +24,13 @@ public class BukkitAPI {
         return null;
     }
 
+    public static void sendMessage(UUID playerUUID, String message){
+        Player player = Bukkit.getPlayer(playerUUID);
+        if(player == null)
+            return;
+        player.sendMessage("§6[KyoAuction]§f " + message);
+    }
     public static void sendMessage(Player player, String message){
-        player.sendMessage("[KyoAuction] " + message);
+        player.sendMessage("§6[KyoAuction]§f " + message);
     }
 }

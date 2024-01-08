@@ -1,5 +1,6 @@
 package org.kyonami.kyoauction.utils;
 
+import org.bukkit.configuration.ConfigurationOptions;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -46,6 +47,7 @@ public class Config {
         }
 
         this.file.getParentFile().mkdirs();
+        copyFile(resourceFile);
     }
 
     private void copyFile(InputStream in){
@@ -160,8 +162,13 @@ public class Config {
         return (List<ItemStack>) this.config.getList(path);
     }
 
+
     public ConfigurationSection getConfigurationSection(String path) {
         return this.config.getConfigurationSection(path);
+    }
+
+    public ConfigurationSection createSection(String path){
+        return this.config.createSection(path);
     }
 
     public void set(String path, Object value) {

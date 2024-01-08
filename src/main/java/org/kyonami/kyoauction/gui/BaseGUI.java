@@ -10,9 +10,9 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public abstract class BaseGUI {
     protected Inventory inventory;
-
     protected List<GUIItem> guiItemList;
 
     public BaseGUI(int size, String title){
@@ -30,9 +30,9 @@ public abstract class BaseGUI {
         }
     }
     private void open(Player player, Inventory inventory) {
-        for(GUIItem guiItem : guiItemList) {
+        for(GUIItem guiItem : guiItemList)
             inventory.setItem(guiItem.getLocation(), guiItem.getItemStack());
-        }
+
         player.openInventory(inventory);
     }
 

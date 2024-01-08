@@ -4,16 +4,17 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.kyonami.kyoauction.gui.BaseGUI;
 import org.kyonami.kyoauction.gui.GUIItem;
+import org.kyonami.kyoauction.utils.Const;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class AuctionGUI extends BaseGUI {
-    public AuctionGUI() {
-        super(54, "거래소");
+    public AuctionGUI (int page, String name){
+        super(54, name + " (페이지 " + page + ")");
     }
+    public AuctionGUI(int page) { super(54, Const.AUCTION_NAME + " (페이지 " + page + ")"); }
 
-    // objects[0] = ItemList
     @Override
     protected void onCreateGui(Player player, Object... objects) {
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 36);
@@ -29,7 +30,7 @@ public class AuctionGUI extends BaseGUI {
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 46);
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 47);
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 48);
-        addGUIItem("검색", Material.SPYGLASS, Arrays.asList(), 49);
+        addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 49);
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 50);
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 51);
         addGUIItem("§0.", Material.BLACK_STAINED_GLASS_PANE, Arrays.asList(), 52);
@@ -43,7 +44,7 @@ public class AuctionGUI extends BaseGUI {
             if(listSize <= i)
                 break;
 
-            addGUIItem(itemList.get(i).getItemStack(), i);
+            addGUIItem(itemList.get(i).getDisplayItemStack(), i);
         }
     }
 }
